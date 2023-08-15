@@ -1,0 +1,113 @@
+*
+{
+    margin:0;
+    padding: 0;
+}
+body{
+    background-image: url("img1.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+#bgSound {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    visibility: hidden;
+}
+
+.main
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(189, 107, 248, 0.29);
+    height: 500px;
+    width: 700px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(255, 255, 255, 0.336);
+    transition:  0.8s ease-in-out;
+}
+/* .main:hover {
+   height: 510px;
+   width: 720px;
+  } */
+  .small {
+    height: 450px;
+    width: 660px;
+    box-shadow: 20px 20px 30px rgba(255, 255, 255, 0.336);
+  }
+
+.main h1{
+    font-size: 60px;
+    font-family: 'Shadows Into Light', cursive;
+    text-align: center;
+    color: rgb(140, 225, 140);
+}
+
+.box
+{
+    height:350px;
+    width: 100%;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 30px;
+}
+#jumbled-text {
+    animation: jumbleAnimation 3s ease-in-out infinite;
+}
+
+/* Keyframes animation */
+@keyframes jumbleAnimation {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-10px) rotate(5deg);
+    }
+    50% {
+        transform: translateX(10px) rotate(-5deg);
+    }
+    75% {
+        transform: translateX(-10px) rotate(5deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+.counter-1,#counter-2{
+padding: 10px;
+color: white;
+font-size: 50px;
+}
+
+.button-box
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: 30px;
+}
+
+.button-box button{
+    margin: 20px;
+    height: 50px;
+    width: 100px;
+    background-color: rgb(140, 225, 140) ;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 3px 3px 6px rgba(255, 255, 255, 0.591);
+}
+
+@media screen and (max-width: 600px) {
+    .main {
+        max-width: 100%;
+    }
+}

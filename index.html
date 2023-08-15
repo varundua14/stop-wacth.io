@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+  <audio id="bgSound" autoplay loop>
+    <source src="red-room-134709.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="main" id="mainDiv">
+    <h1 id="jumbled-text"> The CoUnTeR Game!</h1>
+    <div class="box">
+      <h2 class="counter-1"> Count:</h2>
+      <h2 id="counter-2"> 0 </h2>
+
+      <div class="button-box">
+        <button onclick="stopWorker()">Stop</button>
+        <button id="btn-1" onclick="startWorker()">Start</button>
+        <button onclick="startWorker()">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let w;
+
+    function startWorker() {
+      if(typeof(w) === "undefined") {
+        w = new Worker("demo_workers.js");
+      }
+      w.onmessage = function(event) {
+        document.getElementById("counter-2").innerHTML = event.data;
+      };
+
+      document.getElementById("btn-1").style.visibility = 'hidden';
+    }
+
+    function stopWorker() { 
+      w.terminate();
+      w = undefined;
+    }
+
+
+   
+  </script>
+</body>
+</html>
